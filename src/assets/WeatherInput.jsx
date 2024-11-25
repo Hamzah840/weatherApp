@@ -12,8 +12,9 @@ function WeatherInput({ fetchWeather }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="flex gap-2 text-xs outline-0">
       <input
+        className="bg-[#FDFCFC] rounded-xl w-full p-1 px-3 text-[#838BAA] outline-0 puf-box-shadow"
         type="text"
         placeholder="Search city name..."
         value={city}
@@ -21,7 +22,9 @@ function WeatherInput({ fetchWeather }) {
           setCity(e.target.value);
         }}
       />
-      <button type="submit">Search</button>
+      <button type="submit" className="bg-white px-4 py-1.5 rounded-xl puf-box-shadow text-[#444E72] font-semibold outline-0">
+        Search
+      </button>
     </form>
   );
 }

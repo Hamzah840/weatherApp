@@ -11,7 +11,9 @@ function App() {
 
   const fetchWeather = async (city) => {
     const API_key = "0bfae60efbb745a1b2730028242211";
+    // const API_key = "81b71b2312ae2ab6375a672b36233a92";
     const API_url = `http://api.weatherapi.com/v1/current.json?key=${API_key}&q=${city}`;
+    // const API_url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_key}`;
 
     try {
       setLoading(true);
@@ -62,11 +64,10 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-blue-50 flex flex-col items-center justify-center px-4">
-      <h1 className="text-4xl font-bold text-blue-600 mb-6">Weather App</h1>
+    <div className="container max-w-[450px] mx-auto h-screen bg-gradient-to-b from-[#47BFDF] to-[#4A91FF] p-6 text-xs">
 
       {/* Show loading message for location */}
-      {locationLoading && <p>Fetching your location...</p>}
+      {/* {locationLoading && <p>Fetching your location...</p>} */}
 
       {/* Error or Retry for location */}
       {error && !locationLoading && (
