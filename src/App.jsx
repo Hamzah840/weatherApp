@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./index.css";
-import WeatherInput from "./assets/weatherInput";
-import WeatherDisplay from "./assets/weatherDisplay";
+import WeatherInput from "./assets/WeatherInput";
+import WeatherDisplay from "./assets/WeatherDisplay";
 
 function App() {
   const [weatherData, setWeatherData] = useState(null);
