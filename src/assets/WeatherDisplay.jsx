@@ -41,7 +41,7 @@ function WeatherDisplay({ weatherData, error, loading }) {
       </div>
 
       {/* 7-Day Forecast */}
-      <div className="flex gap-2 overflow-x-scroll mt-4">
+      <div className="flex gap-2 overflow-x-scroll mt-4 pb-2 pl-2 mr-2">
         {weatherData.forecast.forecastday.map((day) => (
           <div
             key={day.date}
