@@ -6,7 +6,7 @@ function WeatherDisplay({ weatherData, error, loading }) {
   const { current, location } = weatherData;
 
   return (
-    <div className="flex flex-col justify-between h-screen mt-2">
+    <div className="flex flex-col justify-between mt-2">
       <div className="my-4 p-2 text-center">
         <img
           src={current.condition.icon}
