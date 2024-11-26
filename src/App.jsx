@@ -62,7 +62,7 @@ function App() {
   }, []);
 
   return (
-    <div className="container max-w-[450px] mx-auto h-screen bg-gradient-to-b from-[#47BFDF] to-[#4A91FF] p-6 text-xs flex flex-col justify-between">
+    <div className="container max-w-[450px] mx-auto h-screen bg-gradient-to-b from-[#47BFDF] to-[#4A91FF] p-6 text-xs flex flex-col">
 
       <WeatherInput fetchWeather={fetchWeather} />
       <WeatherDisplay
