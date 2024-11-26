@@ -11,7 +11,8 @@ function App() {
 
   const fetchWeather = async (city = "New york") => {
     const API_key = "0bfae60efbb745a1b2730028242211";
-    const API_url = `https://api.weatherapi.com/v1/current.json?key=${API_key}&q=${city}`;
+    // const current_url = `https://api.weatherapi.com/v1/current.json?key=${API_key}&q=${city}`;
+    const API_url = `https://api.weatherapi.com/v1/forecast.json?key=${API_key}&q=${city}&days=7`;
 
     try {
       setLoading(true);
@@ -25,7 +26,7 @@ function App() {
       }
       const data = await res.json();
       setWeatherData(data);
-      console.log(data);
+      // console.log(data);
     } catch (err) {
       setError(err.message);
       setWeatherData(null);
@@ -62,7 +63,7 @@ function App() {
   }, []);
 
   return (
-    <div className="container max-w-[450px] mx-auto h-dvh bg-gradient-to-b from-[#47BFDF] to-[#4A91FF] p-6 text-xs flex flex-col">
+    <div className="container max-w-[450px] mx-auto min-h-screen bg-gradient-to-b from-[#47BFDF] to-[#4A91FF] p-6 text-xs flex flex-col">
 
       <WeatherInput fetchWeather={fetchWeather} />
       <WeatherDisplay
