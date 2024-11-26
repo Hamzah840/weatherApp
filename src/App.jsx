@@ -9,11 +9,9 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [locationLoading, setLocationLoading] = useState(true); // Flag for location loading
 
-  const fetchWeather = async (city) => {
+  const fetchWeather = async (city = "New york") => {
     const API_key = "0bfae60efbb745a1b2730028242211";
-    // const API_key = "81b71b2312ae2ab6375a672b36233a92";
     const API_url = `https://api.weatherapi.com/v1/current.json?key=${API_key}&q=${city}`;
-    // const API_url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_key}`;
 
     try {
       setLoading(true);
@@ -21,13 +19,13 @@ function App() {
 
       const res = await fetch(API_url);
       if (!res.ok) {
-        const errorMessage = `Error: ${res.status} - ${res.statusText}`;
+        const errorMessage = `Error: Cannot find the city`;
+
         throw new Error(errorMessage);
       }
       const data = await res.json();
       setWeatherData(data);
       console.log(data);
-      
     } catch (err) {
       setError(err.message);
       setWeatherData(null);
@@ -64,25 +62,35 @@ function App() {
   }, []);
 
   return (
-    <div className="container max-w-[450px] mx-auto h-screen bg-gradient-to-b from-[#47BFDF] to-[#4A91FF] p-6 text-xs">
+    <div className="container max-w-[450px] mx-auto h-screen bg-gradient-to-b from-[#47BFDF] to-[#4A91FF] p-6 text-xs flex flex-col justify-between">
 
-      {/* Show loading message for location */}
-      {/* {locationLoading && <p>Fetching your location...</p>} */}
-
-      {/* Error or Retry for location */}
-      {error && !locationLoading && (
-        <div>
-          <p style={{ color: "red" }}>{error}</p>
-          <button onClick={fetchUserLocationWeather}>Try Again</button>
-        </div>
-      )}
-      
       <WeatherInput fetchWeather={fetchWeather} />
       <WeatherDisplay
         loading={loading}
         error={error}
         weatherData={weatherData}
       />
+
+      {/* Show loading message for location */}
+      {locationLoading && <p>Fetching your location...</p>}
+
+      {/* Error or Retry for location */}
+      {error && !locationLoading && (
+        <>
+          <div className="text-center drop-shadow-xl">
+            <p className="text-white font-bold text-9xl pb-4">404</p>
+            <p className="text-white font-bold text-2xl">
+              {error}
+            </p>
+          </div>
+          <button
+            className="bg-white px-4 py-2.5 rounded-xl puf-box-shadow text-[#444E72] font-semibold outline-0"
+            onClick={fetchUserLocationWeather}
+          >
+            Try Again
+          </button>
+        </>
+      )}
     </div>
   );
 }
