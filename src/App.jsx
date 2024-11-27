@@ -73,7 +73,7 @@ function App() {
 
       {/* Show loading message for location */}
       {
-        /* locationLoading && */ <>
+        locationLoading && <>
           <span className="location-loader"></span>
         </>
       }
