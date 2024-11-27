@@ -64,7 +64,6 @@ function App() {
 
   return (
     <div className="container max-w-[450px] mx-auto min-h-screen bg-gradient-to-b from-[#47BFDF] to-[#4A91FF] p-6 text-xs flex flex-col">
-
       <WeatherInput fetchWeather={fetchWeather} />
       <WeatherDisplay
         loading={loading}
@@ -73,16 +72,23 @@ function App() {
       />
 
       {/* Show loading message for location */}
-      {locationLoading && <p>Fetching your location...</p>}
+      {
+        locationLoading && <div>
+          <span className="location-loader"></span>
+          <span className="location-loader delay-200"></span>
+          <span className="location-loader delay-400"></span>
+          <span className="location-loader delay-600"></span>
+          <span className="location-loader delay-800"></span>
+          <span className="location-loader delay-1000"></span>
+        </div>
+      }
 
       {/* Error or Retry for location */}
       {error && !locationLoading && (
         <>
           <div className="text-center drop-shadow-xl">
             <p className="text-white font-bold text-9xl pb-4">404</p>
-            <p className="text-white font-bold text-2xl">
-              {error}
-            </p>
+            <p className="text-white font-bold text-2xl">{error}</p>
           </div>
           <button
             className="bg-white px-4 py-2.5 rounded-xl puf-box-shadow text-[#444E72] font-semibold outline-0"

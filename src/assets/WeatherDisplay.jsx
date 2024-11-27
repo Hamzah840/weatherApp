@@ -1,5 +1,5 @@
 function WeatherDisplay({ weatherData, error, loading }) {
-  if (loading) return <p>Loading...</p>;
+  // if (loading) return <p>Loading...</p>;
   // if (error) return <p style={{ color: "red" }}>{error}</p>;
   if (!weatherData) return null;
 
