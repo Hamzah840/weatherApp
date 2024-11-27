@@ -53,7 +53,7 @@ function WeatherDisplay({ weatherData, error, loading }) {
               alt={day.day.condition.icon}
               className="mx-auto drop-shadow-lg"
             />
-            <p className="text-xl text-white font-semibold">{day.day.avgtemp_c}</p>
+            <p className="text-xl text-white font-semibold">{day.day.avgtemp_c}°</p>
             <p className="text-white">{day.day.condition.text}</p>
           </div>
         ))}
