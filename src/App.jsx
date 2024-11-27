@@ -73,14 +73,9 @@ function App() {
 
       {/* Show loading message for location */}
       {
-        locationLoading && <div>
+        /* locationLoading && */ <>
           <span className="location-loader"></span>
-          <span className="location-loader delay-200"></span>
-          <span className="location-loader delay-400"></span>
-          <span className="location-loader delay-600"></span>
-          <span className="location-loader delay-800"></span>
-          <span className="location-loader delay-1000"></span>
-        </div>
+        </>
       }
 
       {/* Error or Retry for location */}

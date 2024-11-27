@@ -3,7 +3,7 @@
 
 @layer components {
   .location-loader {
-    @apply animate-ping bg-sky-500 opacity-75 w-40 h-40 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 origin-bottom-right;
+    @apply animate-ping bg-sky-500 opacity-75 w-32 h-32 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 origin-bottom-right ease-in-out;
   }
 }
 
